@@ -11,17 +11,19 @@ import {extractMessages} from "@angular/compiler/src/i18n/extractor_merger";
 
 export class MessageComponent {
     @Input() message: Message;
-    @Output() editClicked = new EventEmitter<string>();
 
     constructor(private messageService: MessageService) {}
 
     color = 'red';
 
     onEdit() {
-        this.editClicked.emit('A new value!');
+        this.messageService.editMessage(this.message);
     }
 
     onDelete() {
-        this.messageService.deleteMessage(this.message);
+        this.messageService.deleteMessage(this.message)
+            .subscribe(
+                result => console.log(result)
+            );
     }
 }
