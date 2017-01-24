@@ -12,7 +12,8 @@ import {extractMessages} from "@angular/compiler/src/i18n/extractor_merger";
 export class MessageComponent {
     @Input() message: Message;
 
-    constructor(private messageService: MessageService) {}
+    constructor(private messageService: MessageService) {
+    }
 
     color = 'red';
 
@@ -25,5 +26,9 @@ export class MessageComponent {
             .subscribe(
                 result => console.log(result)
             );
+    }
+
+    belongsToUser() {
+        return localStorage.getItem('userId') == this.message.userId;
     }
 }
