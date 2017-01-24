@@ -16,7 +16,7 @@ export class LogoutCompoment {
     constructor(private authService: AuthService, private router: Router) {}
 
     onLogout() {
-        this.authService.logout();
+        AuthService.logout();
         this.router.navigate(['/auth/', 'signin']);
     }
 }

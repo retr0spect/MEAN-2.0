@@ -23,7 +23,7 @@ export class AuthenticationComponent {
     constructor(private authService: AuthService) { }
 
     isLoggedIn() {
-        return this.authService.isLoggedIn();
+        return AuthService.isLoggedIn();
     }
 
 }
